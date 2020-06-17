@@ -22,9 +22,9 @@ pipeline {
         stage('Copy Artifact to Docker-Host') {
             steps {
                 sshagent(['Docker-Host-Creds']) {
-                       // some block
-                       sh 'scp -o StrictHostKeyChecking=no webapp/target/webapp.war dockeradmin@172.31.43.177:/opt/docker-workspace'
+                   sh 'scp -o StrictHostKeyChecking=no webapp/target/webapp.war dockeradmin@172.31.43.177:/opt/docker-workspace'
                 }
             }
         } // stage
-}
+     } //stages
+} //pipeline
