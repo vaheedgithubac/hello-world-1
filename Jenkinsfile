@@ -29,7 +29,7 @@ pipeline {
                                               makeEmptyDirs: false, 
                                               noDefaultExcludes: false, 
                                               patternSeparator: '[, ]+', 
-                                              remoteDirectory: '//opt//tomcat85//webapps', 
+                                              remoteDirectory: '/opt/tomcat85/webapps', 
                                               remoteDirectorySDF: false, 
                                               removePrefix: 'webapp/target', 
                                               sourceFiles: 'webapp/target/webapp.war')], 
