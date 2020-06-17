@@ -23,7 +23,6 @@ pipeline {
             steps {
                 sshagent(['Docker-Host-Creds']) {
                    sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war dockeradmin@172.31.43.177:/home/dockeradmin"
-"
                 }
             }
         } // stage
