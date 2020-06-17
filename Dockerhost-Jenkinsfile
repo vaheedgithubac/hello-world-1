@@ -21,12 +21,13 @@ pipeline {
         
         stage('Copy Artifact to Docker-Host') {
             steps {
-                //sshagent(['Docker-Host-Creds']) {
+                sshagent(['Docker-Host-Creds']) {
                    //sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war dockeradmin@172.31.43.177:/home/dockeradmin"
-                //}
-                sshagent(['Docker-Host-EC2-User']) {
-                   sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@172.31.43.177:/opt/docker-workspace"
-                 }
+                   sh "ssh -o StrictHostKeyChecking=no dockeradmin@172.31.43.177"
+                }
+                //sshagent(['Docker-Host-EC2-User']) {
+                   //sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@172.31.43.177:/opt/docker-workspace"
+                 //}
                 
             }
         } // stage
