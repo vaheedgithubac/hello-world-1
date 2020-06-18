@@ -24,13 +24,13 @@ pipeline {
                                   //sshagent(['Docker-Host-Creds']) {
                                  //sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war dockeradmin@172.31.43.177:/home/dockeradmin"
                                 //sh "ssh -o StrictHostKeyChecking=no dockeradmin@172.31.43.177 cp webapp/target/webapp.war /home/dockeradmin"
-                           }
+                          
                               //sshagent(['Docker-Host-EC2-User']) {
                              //sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@172.31.43.177:/opt/docker-workspace"
                        //}
                        
     sh "scp -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/id_rsa webapp/target/webapp.war dockeradmin@172.31.43.177:/opt/docker-workspace"
-                       
+             }          
                 
          } // stage
      } //stages
