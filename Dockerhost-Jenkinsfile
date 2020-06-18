@@ -32,7 +32,6 @@ pipeline {
     sh "scp -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/id_rsa webapp/target/webapp.war dockeradmin@172.31.43.177:/opt/docker-workspace"
                        
                 
-            }
-        } // stage
+         } // stage
      } //stages
 } //pipeline
