@@ -30,7 +30,7 @@ pipeline {
                        //}
                        
     sh """   scp -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/id_rsa webapp/target/webapp.war Dockerfile dockeradmin@172.31.43.177:/opt/docker-workspace
-             ssh dockeradmin@172.31.43.177:/opt/docker-workspace docker build -t vaheeddockerhub/webapp_img:latest .
+             ssh -i /var/lib/jenkins/.ssh/id_rsa dockeradmin@172.31.43.177:/opt/docker-workspace docker build -t vaheeddockerhub/webapp_img:latest .
        """
              }     
              
