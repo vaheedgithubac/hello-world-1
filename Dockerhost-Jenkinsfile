@@ -28,9 +28,15 @@ pipeline {
                               //sshagent(['Docker-Host-EC2-User']) {
                              //sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@172.31.43.177:/opt/docker-workspace"
                        //}
-                       
-    sh """   // scp -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/id_rsa webapp/target/webapp.war Dockerfile dockeradmin@172.31.43.177:/opt/docker-workspace
-             scp -o StrictHostKeyChecking=no  webapp/target/webapp.war Dockerfile dockeradmin@172.31.43.177
+               
+               
+               
+    sh """   // The following line copies webapp.war & Dockerfile to /opt/docker-workspace (Passwordless Authentication)
+              scp -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/id_rsa webapp/target/webapp.war Dockerfile dockeradmin@172.31.43.177:/opt/docker-workspace
+              
+             // The following line copies webapp.war & Dockerfile to /home/dockeradmin i.e dockeradmin's home directory by default (Passwordless Authentication)
+             //scp -o StrictHostKeyChecking=no  webapp/target/webapp.war Dockerfile dockeradmin@172.31.43.177
+             
              ssh dockeradmin@172.31.43.177 docker build -t vaheeddockerhub/webapp_img:latest /opt/docker-workspace 
        """
              }     
